@@ -70,11 +70,18 @@ export default function LoginPage() {
         <div className="space-y-8 text-center lg:text-left">
           <div className="space-y-4">
             <div className="flex items-center justify-center lg:justify-start gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-md">
-                <Sparkles className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 flex items-center justify-center">
+                <img 
+                  src="/Logo.svg" 
+                  alt="Fira AI" 
+                  className="w-12 h-12"
+                  style={{ 
+                    filter: darkMode ? 'brightness(0) saturate(100%) invert(100%)' : 'none' 
+                  }}
+                />
               </div>
               <h1 className="text-3xl font-bold notion-text">
-                AI Notes
+                Fira AI
               </h1>
             </div>
             
@@ -116,7 +123,7 @@ export default function LoginPage() {
               <div key={index} className="text-center space-y-3">
                 <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto shadow-md" 
                      style={{ 
-                       backgroundColor: index === 0 ? '#0075de' : index === 1 ? '#f59e0b' : '#22c55e' 
+                       backgroundColor: index === 0 ? '#1d1d1f' : index === 1 ? '#1d1d1f' : '#1d1d1f' 
                      }}>
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>

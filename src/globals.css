@@ -52,26 +52,26 @@
   }
 
   .dark {
-    /* Simple Dark Theme - Pure Black & Light Text */
-    --background: 0 0 0;
+    /* Simple Dark Theme - #1d1d1f & Light Text */
+    --background: 29 29 31;
     --foreground: 255 255 255;
-    --card: 17 17 17;
+    --card: 29 29 31;
     --card-foreground: 255 255 255;
-    --popover: 17 17 17;
+    --popover: 29 29 31;
     --popover-foreground: 255 255 255;
-    --primary: 0 117 222;
+    --primary: 29 29 31;
     --primary-foreground: 255 255 255;
-    --secondary: 30 30 30;
+    --secondary: 29 29 31;
     --secondary-foreground: 255 255 255;
     --muted: 40 40 40;
     --muted-foreground: 163 163 163;
-    --accent: 30 30 30;
+    --accent: 29 29 31;
     --accent-foreground: 255 255 255;
     --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
     --border: 60 60 60;
-    --input: 17 17 17;
-    --ring: 0 117 222;
+    --input: 29 29 31;
+    --ring: 29 29 31;
     --sidebar: 17 17 17;
     --sidebar-hover: 30 30 30;
     
@@ -121,7 +121,7 @@
   
   /* Dark mode explicit styling */
   .dark body {
-    background-color: #000000;
+    background-color: #1d1d1f;
     color: #ffffff;
   }
   
@@ -215,7 +215,7 @@
   
   /* Simple buttons with exact colors */
   .notion-button {
-    background: #0075de;
+    background: #1d1d1f;
     color: #ffffff;
     border: none;
     border-radius: 6px;
@@ -227,7 +227,7 @@
   }
   
   .notion-button:hover {
-    background: #0066cc;
+    background: #0a0a0a;
     transform: translateY(-1px);
   }
   
@@ -291,7 +291,7 @@
   }
   
   .dark .notion-sidebar {
-    background: #111111;
+    background: #1d1d1f;
     border-right: 1px solid #3c3c3c;
   }
   
@@ -345,7 +345,7 @@
   }
   
   .dark .notion-content {
-    background: #000000;
+    background: #1d1d1f;
   }
   
   /* Toolbar */
@@ -356,7 +356,7 @@
   }
   
   .dark .notion-toolbar {
-    background: #000000;
+    background: #1d1d1f;
     border-bottom: 1px solid #3c3c3c;
   }
   
