@@ -169,11 +169,11 @@ export default function NotesApp({ onLogout }) {
   };
 
   return (
-    <div className={`flex h-screen bg-background text-foreground notion-text ${darkMode ? 'dark' : ''}`}>
-      {/* Enhanced Sidebar with Notion styling */}
+    <div className={`flex h-screen notion-content notion-text ${darkMode ? 'dark' : ''}`}>
+      {/* Enhanced Sidebar with simplified styling */}
       <div className={`${sidebarCollapsed ? 'w-16' : 'w-64'} notion-transition notion-sidebar flex flex-col relative`}>
         {/* Sidebar Header */}
-        <div className="p-3 border-b border-border">
+        <div className="p-3 border-b" style={{ borderColor: darkMode ? '#3c3c3c' : '#e5e5e5' }}>
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
               <Button
@@ -186,7 +186,7 @@ export default function NotesApp({ onLogout }) {
               </Button>
               {!sidebarCollapsed && (
                 <h1 className="text-sm font-semibold flex items-center gap-2 notion-text">
-                  <div className="w-5 h-5 bg-gradient-to-br from-blue-500 to-indigo-600 rounded flex items-center justify-center">
+                  <div className="w-5 h-5 rounded flex items-center justify-center" style={{ backgroundColor: '#0075de' }}>
                     <Sparkles className="w-3 h-3 text-white" />
                   </div>
                   AI Notes
@@ -207,12 +207,12 @@ export default function NotesApp({ onLogout }) {
           
           {!sidebarCollapsed && (
             <div className="relative">
-              <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4" style={{ color: '#666666' }} />
               <Input
                 placeholder="Search..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-8 h-8 text-sm notion-input border-0 bg-rgba(55,53,47,0.06) focus:bg-white"
+                className="pl-8 h-8 text-sm notion-input"
               />
             </div>
           )}
@@ -249,13 +249,13 @@ export default function NotesApp({ onLogout }) {
                 onClick={() => setSelectedNote(note)}
               >
                 {sidebarCollapsed ? (
-                  <div className="w-5 h-5 notion-blue-bg rounded flex items-center justify-center flex-shrink-0">
-                    <FileText className="w-3 h-3 notion-blue" />
+                  <div className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#0075de' }}>
+                    <FileText className="w-3 h-3 text-white" />
                   </div>
                 ) : (
                   <>
-                    <div className="w-4 h-4 notion-blue-bg rounded flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-2.5 h-2.5 notion-blue" />
+                    <div className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#0075de' }}>
+                      <FileText className="w-2.5 h-2.5 text-white" />
                     </div>
                     <span className="flex-1 text-sm truncate">
                       {note.title || 'Untitled'}
@@ -279,21 +279,22 @@ export default function NotesApp({ onLogout }) {
         </div>
       </div>
 
-      {/* Main Content Area with Notion styling */}
-      <div className="flex-1 flex flex-col bg-background">
+      {/* Main Content Area with simplified styling */}
+      <div className="flex-1 flex flex-col notion-content">
         {isCreating ? (
           <div className="flex-1 flex flex-col">
             {/* Enhanced Header for New Note */}
-            <div className="px-6 py-4 border-b border-border">
+            <div className="px-6 py-4" style={{ borderBottom: `1px solid ${darkMode ? '#3c3c3c' : '#e5e5e5'}` }}>
               <div className="flex items-center gap-3">
-                <div className="w-6 h-6 notion-green-bg rounded flex items-center justify-center">
-                  <Plus className="w-3 h-3 notion-green" />
+                <div className="w-6 h-6 rounded flex items-center justify-center" style={{ backgroundColor: '#22c55e' }}>
+                  <Plus className="w-3 h-3 text-white" />
                 </div>
                 <Input
                   placeholder="Untitled"
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
-                  className="flex-1 notion-title border-none bg-transparent placeholder:text-muted-foreground focus-visible:ring-0 p-0 h-auto"
+                  className="flex-1 notion-title border-none bg-transparent focus-visible:ring-0 p-0 h-auto"
+                  style={{ color: darkMode ? '#ffffff' : '#111111' }}
                 />
                 <div className="flex gap-2">
                   <Button onClick={createNote} size="sm" className="notion-button h-8">
@@ -312,17 +313,18 @@ export default function NotesApp({ onLogout }) {
                 placeholder="Type '/' for commands..."
                 value={newContent}
                 onChange={(e) => setNewContent(e.target.value)}
-                className="w-full h-full resize-none border-none shadow-none focus-visible:ring-0 text-base notion-text bg-transparent placeholder:notion-subtext p-0"
+                className="w-full h-full resize-none border-none shadow-none focus-visible:ring-0 text-base notion-text bg-transparent p-0"
+                style={{ color: darkMode ? '#ffffff' : '#111111' }}
               />
             </div>
           </div>
         ) : selectedNote ? (
           <div className="flex-1 flex flex-col">
             {/* Enhanced Header for Selected Note */}
-            <div className="px-6 py-4 border-b border-border">
+            <div className="px-6 py-4" style={{ borderBottom: `1px solid ${darkMode ? '#3c3c3c' : '#e5e5e5'}` }}>
               <div className="flex items-center gap-3">
-                <div className="w-6 h-6 notion-blue-bg rounded flex items-center justify-center">
-                  <FileText className="w-3 h-3 notion-blue" />
+                <div className="w-6 h-6 rounded flex items-center justify-center" style={{ backgroundColor: '#0075de' }}>
+                  <FileText className="w-3 h-3 text-white" />
                 </div>
                 <Input
                   value={selectedNote.title}
@@ -332,34 +334,36 @@ export default function NotesApp({ onLogout }) {
                   }}
                   onBlur={() => updateNote(selectedNote)}
                   className="flex-1 notion-title border-none bg-transparent focus-visible:ring-0 p-0 h-auto"
+                  style={{ color: darkMode ? '#ffffff' : '#111111' }}
                 />
                   <Button
                     onClick={() => deleteNote(selectedNote.id)}
                     variant="ghost"
                     size="sm"
-                    className="notion-button-ghost h-8 notion-red hover:notion-red-bg"
+                    className="notion-button-ghost h-8"
+                    style={{ color: '#dc2626' }}
                   >
                   <Trash2 className="w-4 h-4" />
                 </Button>
               </div>
             </div>
             
-            {/* Enhanced AI Toolbar with Notion colors */}
-            <div className="px-6 py-3 border-b border-border bg-sidebar/50">
+            {/* Enhanced AI Toolbar with simplified colors */}
+            <div className="px-6 py-3" style={{ borderBottom: `1px solid ${darkMode ? '#3c3c3c' : '#e5e5e5'}`, backgroundColor: darkMode ? '#111111' : '#fafafa' }}>
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 notion-purple-bg rounded flex items-center justify-center">
-                    <Sparkles className="w-2.5 h-2.5 notion-purple" />
+                  <div className="w-4 h-4 rounded flex items-center justify-center" style={{ backgroundColor: '#8b5cf6' }}>
+                    <Sparkles className="w-2.5 h-2.5 text-white" />
                   </div>
                   <span className="text-sm font-medium notion-text">AI Assistant</span>
                 </div>
                 <div className="flex gap-1">
                   {[
-                    { action: 'fix-grammar', icon: Wand2, label: 'Fix Grammar', color: 'rgb(72, 124, 165)' },
-                    { action: 'summarize', icon: FileText, label: 'Summarize', color: 'rgb(84, 129, 100)' },
-                    { action: 'expand', icon: Zap, label: 'Expand', color: 'rgb(194, 147, 67)' },
-                    { action: 'professional', icon: MessageSquare, label: 'Professional', color: 'rgb(138, 103, 171)' },
-                    { action: 'casual', icon: MessageSquare, label: 'Casual', color: 'rgb(179, 84, 136)' }
+                    { action: 'fix-grammar', icon: Wand2, label: 'Fix Grammar', color: '#0075de' },
+                    { action: 'summarize', icon: FileText, label: 'Summarize', color: '#22c55e' },
+                    { action: 'expand', icon: Zap, label: 'Expand', color: '#f59e0b' },
+                    { action: 'professional', icon: MessageSquare, label: 'Professional', color: '#8b5cf6' },
+                    { action: 'casual', icon: MessageSquare, label: 'Casual', color: '#ec4899' }
                   ].map(({ action, icon: Icon, label, color }) => (
                     <Button
                       key={action}
@@ -393,10 +397,15 @@ export default function NotesApp({ onLogout }) {
                 className="w-full h-full resize-none border-none shadow-none focus-visible:ring-0 text-base notion-text bg-transparent p-0"
                 disabled={loading}
                 placeholder="Start writing, or type '/' for commands..."
+                style={{ color: darkMode ? '#ffffff' : '#111111' }}
               />
               
               {/* Floating Status */}
-              <div className="absolute bottom-4 right-4 text-xs notion-subtext bg-card/90 backdrop-blur-sm px-2 py-1 rounded border border-border/50">
+              <div className="absolute bottom-4 right-4 text-xs notion-subtext backdrop-blur-sm px-2 py-1 rounded" 
+                   style={{ 
+                     backgroundColor: darkMode ? 'rgba(17, 17, 17, 0.9)' : 'rgba(255, 255, 255, 0.9)', 
+                     border: `1px solid ${darkMode ? '#3c3c3c' : '#e5e5e5'}` 
+                   }}>
                 {new Date(selectedNote.updated_at).toLocaleTimeString([], { 
                   hour: '2-digit', 
                   minute: '2-digit' 
@@ -405,10 +414,16 @@ export default function NotesApp({ onLogout }) {
             </div>
             
             {loading && (
-              <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50">
-                <div className="bg-card rounded-lg p-4 shadow-lg border border-border">
+              <div className="absolute inset-0 backdrop-blur-sm flex items-center justify-center z-50" 
+                   style={{ backgroundColor: darkMode ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.8)' }}>
+                <div className="rounded-lg p-4 shadow-lg" 
+                     style={{ 
+                       backgroundColor: darkMode ? '#111111' : '#ffffff', 
+                       border: `1px solid ${darkMode ? '#3c3c3c' : '#e5e5e5'}` 
+                     }}>
                   <div className="flex items-center gap-3">
-                    <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+                    <div className="w-4 h-4 border-2 rounded-full animate-spin" 
+                         style={{ borderColor: '#0075de', borderTopColor: 'transparent' }}></div>
                     <span className="text-sm notion-text">AI is thinking...</span>
                   </div>
                 </div>
@@ -418,8 +433,9 @@ export default function NotesApp({ onLogout }) {
         ) : (
           <div className="flex-1 flex items-center justify-center">
             <div className="text-center max-w-md">
-              <div className="w-16 h-16 notion-blue-bg rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm">
-                <Sparkles className="w-8 h-8 notion-blue" />
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm" 
+                   style={{ backgroundColor: '#0075de' }}>
+                <Sparkles className="w-8 h-8 text-white" />
               </div>
               <h3 className="notion-heading text-lg mb-2">Welcome to your workspace</h3>
               <p className="notion-subtext mb-4 leading-relaxed">

@@ -114,16 +114,11 @@ export default function LoginPage() {
               }
             ].map((feature, index) => (
               <div key={index} className="text-center space-y-3">
-                <div className={`w-12 h-12 ${
-                  index === 0 ? 'notion-blue-bg' : 
-                  index === 1 ? 'notion-orange-bg' : 
-                  'notion-green-bg'
-                } rounded-lg flex items-center justify-center mx-auto shadow-md`}>
-                  <feature.icon className={`w-6 h-6 ${
-                    index === 0 ? 'notion-blue' : 
-                    index === 1 ? 'notion-orange' : 
-                    'notion-green'
-                  }`} />
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto shadow-md" 
+                     style={{ 
+                       backgroundColor: index === 0 ? '#0075de' : index === 1 ? '#f59e0b' : '#22c55e' 
+                     }}>
+                  <feature.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-semibold notion-text">{feature.title}</h3>
                 <p className="text-sm notion-subtext leading-relaxed">{feature.description}</p>
